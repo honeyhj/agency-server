@@ -119,9 +119,9 @@ client.connect(err => {
 
 
 
-// app.get('/',(req,res)=>{
-//     res.sendFile(__dirname + '/index.html')
-// })
+app.get('/',(req,res)=>{
+    res.send('Working')
+})
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
