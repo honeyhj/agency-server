@@ -6,8 +6,8 @@ const fileupload = require('express-fileupload');
 const admin = require('firebase-admin');
 
 
-const port = process.env.DB_PORT || 4000;
-
+// const port = process.env.DB_PORT || 4000;
+const port=4000;
 
 var serviceAccount = require("./configs/creative-agency-b3e0e-firebase-adminsdk-66cnr-98360a74ce");
 admin.initializeApp({
@@ -124,7 +124,8 @@ app.get('/',(req,res)=>{
     res.send('Working')
 })
 
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+// app.listen(port, () => {
+//     console.log(`Server is listening on port ${port}`);
     
-})
+// })
+app.listen(process.env.PORT || port);
