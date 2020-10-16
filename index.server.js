@@ -33,13 +33,14 @@ client.connect(err => {
     const orderCollection = client.db(`${process.env.DB_NAME}`).collection("orders");
     const reviewCollection = client.db(`${process.env.DB_NAME}`).collection("reviews");
     const adminCollection = client.db(`${process.env.DB_NAME}`).collection("admins");
-    console.log('database connected');
+    console.log("database connected");
 
     app.post('/allService',(req,res)=>{
+        console.log(req);
         const allServices = req.body;
         serviceCollection.insertOne(allServices)
         .then((result)=>{
-            res.send('added',result)
+            res.send('added')
         })
     });
     app.get('/allService',(req,res)=>{
@@ -52,7 +53,7 @@ client.connect(err => {
         const allOrder=req.body
         orderCollection.insertOne(allOrder)
         .then(result=>{
-            res.send('added',result)
+            res.send('added')
         })
     });
     app.get('/allOrder/',(req,res)=>{
